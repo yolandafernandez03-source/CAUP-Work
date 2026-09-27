@@ -1,0 +1,1201 @@
+/* ==========================================================================
+   PORTFOLIO EDITORIAL // YOLANDA F. V.
+   COMUNICACIÓN AUDIOVISUAL — UNIVERSIDAD MIGUEL HERNÁNDEZ (UMH)
+   Diseño: Minimalista, editorial, elegante, limpio y colorido (Fondos claros)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO & PALETA DE COLOR
+   -------------------------------------------------------------------------- */
+:root {
+  /* Fondos claros */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafaf9;
+  --bg-subtle: #f4f4f2;
+  --bg-card: #ffffff;
+
+  /* Tipografía y textos */
+  --text-main: #121214;
+  --text-secondary: #4a4a52;
+  --text-muted: #737380;
+  --text-light: #8e8e99;
+
+  /* Paleta cromática sofisticada (Sin amarillo) */
+  --accent-blue: #0047ff;      /* Azul eléctrico */
+  --accent-sky: #38bdf8;       /* Azul cielo */
+  --accent-pink: #ff4081;      /* Rosa vibrante */
+  --accent-magenta: #d81159;   /* Magenta */
+  --accent-coral: #ff4d4d;     /* Rojo / Coral */
+  --accent-green: #00b060;     /* Verde esmeralda */
+  --accent-lilac: #8b5cf6;     /* Lila contemporáneo */
+
+  /* Líneas y bordes limpios */
+  --border-hairline: #e8e8ea;
+  --border-light: #dedee2;
+  --border-focus: #0047ff;
+
+  /* Sombras sutiles y elegantes */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 16px 36px rgba(0, 0, 0, 0.08);
+
+  /* Tipografías */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Transiciones */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Espaciado del contenedor */
+  --container-max: 1240px;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & ESTILOS BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* ACCESIBILIDAD: Enlace de salto rápido */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1.5rem;
+  background-color: var(--accent-blue);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  z-index: 9999;
+  border-radius: 4px;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1.5rem;
+}
+
+/* Foco accesible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+}
+
+/* Contenedor centralizado */
+.container {
+  width: 90%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ocultar elementos para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. CABECERA & NAVEGACIÓN MINIMALISTA
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-hairline);
+  z-index: 1000;
+  transition: padding var(--transition-fast), border-color var(--transition-fast);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+/* Marca / Logotipo editorial */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-blue);
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.brand-role {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Menú de navegación desktop */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2.25rem;
+}
+
+.nav-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.4rem 0;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-blue);
+  transition: width var(--transition-smooth);
+}
+
+.nav-link:hover {
+  color: var(--accent-blue);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--text-main);
+}
+
+/* Botón menú móvil (hamburguesa limpia) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.nav-toggle-bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-main);
+  margin: 3px 0;
+  transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   4. SECCIÓN HERO (EDITORIAL, LIMPIO, RESPIRADO)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: clamp(3.5rem, 8vw, 6.5rem) 0 clamp(4rem, 9vw, 7rem) 0;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+}
+
+.hero-tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 5.2rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.hero-lead {
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-top: 0.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.btn-editorial {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.85rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 9999px;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #0036cc;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 71, 255, 0.25);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  transform: translateY(-2px);
+}
+
+.hero-meta-scroll {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Composición de imagen Hero editorial */
+.hero-visual-wrapper {
+  position: relative;
+}
+
+.hero-main-frame {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  background-color: var(--bg-subtle);
+  aspect-ratio: 4 / 5;
+  transition: transform var(--transition-smooth);
+}
+
+.hero-main-frame:hover {
+  transform: scale(1.015);
+}
+
+.hero-main-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fotografía secundaria desplazada elegante */
+.hero-sub-frame {
+  position: absolute;
+  bottom: -2.5rem;
+  left: -2.5rem;
+  width: 48%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  border: 4px solid #ffffff;
+  transform: rotate(-2.5deg);
+  background-color: var(--bg-subtle);
+  transition: transform var(--transition-smooth);
+}
+
+.hero-sub-frame:hover {
+  transform: rotate(0deg) scale(1.04);
+}
+
+.hero-sub-frame img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECCIÓN PROYECTOS (LA MÁS IMPORTANTE // EDITORIAL & LIMPIA)
+   -------------------------------------------------------------------------- */
+.section {
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+}
+
+.section-alt {
+  background-color: var(--bg-secondary);
+}
+
+.section-header-editorial {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Lista editorial de proyectos: Asimétrica y con espacio */
+.projects-editorial-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+/* Inversión alternada para ritmo editorial */
+.project-item:nth-child(even) {
+  grid-template-columns: 0.75fr 1.25fr;
+}
+
+.project-item:nth-child(even) .project-media {
+  order: 2;
+}
+
+.project-item:nth-child(even) .project-details {
+  order: 1;
+}
+
+/* Contenedor de fotografía de proyecto */
+.project-media {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--bg-subtle);
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.project-media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.project-item:hover .project-media {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.project-item:hover .project-media img {
+  transform: scale(1.035);
+}
+
+/* Overlay flotante "VIEW PROJECT →" */
+.project-hover-pill {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  padding: 0.65rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: var(--text-main);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-item:hover .project-hover-pill {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Información de proyecto: 01, Título, Categoría, Año */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-num {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-num-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.project-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  line-height: 1.08;
+  transition: color var(--transition-fast);
+}
+
+.project-meta-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.project-category-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+}
+
+.project-link-action {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap var(--transition-fast), color var(--transition-fast);
+}
+
+.project-link-action:hover {
+  gap: 0.75rem;
+}
+
+/* Colores específicos por proyecto (Sin amarillo) */
+.project-color-blue .project-num { color: var(--accent-blue); }
+.project-color-blue .project-num-dot { background-color: var(--accent-blue); }
+.project-color-blue:hover .project-heading { color: var(--accent-blue); }
+.project-color-blue .project-link-action { color: var(--accent-blue); }
+
+.project-color-magenta .project-num { color: var(--accent-magenta); }
+.project-color-magenta .project-num-dot { background-color: var(--accent-magenta); }
+.project-color-magenta:hover .project-heading { color: var(--accent-magenta); }
+.project-color-magenta .project-link-action { color: var(--accent-magenta); }
+
+.project-color-green .project-num { color: var(--accent-green); }
+.project-color-green .project-num-dot { background-color: var(--accent-green); }
+.project-color-green:hover .project-heading { color: var(--accent-green); }
+.project-color-green .project-link-action { color: var(--accent-green); }
+
+.project-color-lilac .project-num { color: var(--accent-lilac); }
+.project-color-lilac .project-num-dot { background-color: var(--accent-lilac); }
+.project-color-lilac:hover .project-heading { color: var(--accent-lilac); }
+.project-color-lilac .project-link-action { color: var(--accent-lilac); }
+
+.project-color-sky .project-num { color: var(--accent-sky); }
+.project-color-sky .project-num-dot { background-color: var(--accent-sky); }
+.project-color-sky:hover .project-heading { color: var(--accent-sky); }
+.project-color-sky .project-link-action { color: var(--accent-sky); }
+
+.project-color-coral .project-num { color: var(--accent-coral); }
+.project-color-coral .project-num-dot { background-color: var(--accent-coral); }
+.project-color-coral:hover .project-heading { color: var(--accent-coral); }
+.project-color-coral .project-link-action { color: var(--accent-coral); }
+
+/* Botón ver catálogo completo */
+.projects-cta-center {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIÓN AUDIOVISUAL / VÍDEO (LIMPIA, PROTAGONISTA)
+   -------------------------------------------------------------------------- */
+.video-section {
+  background-color: var(--bg-primary);
+}
+
+.video-player-clean {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #000000;
+  box-shadow: var(--shadow-hover);
+  aspect-ratio: 16 / 9;
+}
+
+.video-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.92;
+  transition: opacity var(--transition-smooth), transform var(--transition-slow);
+}
+
+.video-player-clean:hover .video-poster-img {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* Botón central de reproducción minimalista */
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.video-play-icon {
+  font-size: 1.4rem;
+  margin-left: 3px;
+  line-height: 1;
+}
+
+.video-play-text {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.video-player-clean:hover .video-play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+  background-color: var(--accent-blue);
+  color: #ffffff;
+}
+
+.video-status-indicator {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCIÓN SOBRE MÍ / ABOUT (BREVE, ELEGANTE, 2-4 LÍNEAS)
+   -------------------------------------------------------------------------- */
+.about-section {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.about-photo-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  background-color: var(--bg-subtle);
+  aspect-ratio: 16 / 10;
+  transition: transform var(--transition-smooth);
+}
+
+.about-photo-frame:hover {
+  transform: scale(1.02);
+}
+
+.about-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-statement {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.about-brief-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Áreas de interés limpias (Sin porcentajes, sin barras) */
+.about-disciplines-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.about-discipline-pill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.35rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.about-discipline-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECCIÓN CONTACTO & MAPA (EDIFICIO ALTET · UMH ELCHE)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  background-color: var(--bg-primary);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+/* Columna izquierda: Información directa & Mapa */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-channels-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-channel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-channel-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.contact-channel-link {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+
+.contact-channel-link:hover {
+  color: var(--accent-blue);
+}
+
+/* Bloque del Mapa: Edificio Altet (UMH Campus Elche) */
+.map-embed-wrapper {
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+  background-color: var(--bg-subtle);
+  box-shadow: var(--shadow-subtle);
+}
+
+.map-caption {
+  padding: 0.85rem 1.25rem;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-main);
+}
+
+.map-caption-badge {
+  font-size: 0.75rem;
+  color: var(--accent-blue);
+  background-color: rgba(0, 71, 255, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  display: block;
+}
+
+/* Columna derecha: Formulario limpio */
+.contact-form-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: var(--bg-secondary);
+  padding: clamp(2rem, 4vw, 3rem);
+  border-radius: 16px;
+  border: 1px solid var(--border-hairline);
+}
+
+.form-group-clean {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label-clean {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.form-input-clean,
+.form-textarea-clean {
+  width: 100%;
+  padding: 0.95rem 1.15rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input-clean:focus,
+.form-textarea-clean:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 71, 255, 0.12);
+}
+
+.form-textarea-clean {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-status-box {
+  padding: 0.85rem 1.15rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: none;
+}
+
+.form-status-box.success {
+  display: block;
+  background-color: rgba(0, 176, 96, 0.1);
+  color: #007a42;
+  border: 1px solid rgba(0, 176, 96, 0.25);
+}
+
+.form-status-box.error {
+  display: block;
+  background-color: rgba(216, 17, 89, 0.1);
+  color: var(--accent-magenta);
+  border: 1px solid rgba(216, 17, 89, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   9. PIE DE PÁGINA (MINIMALISTA)
+   -------------------------------------------------------------------------- */
+.site-footer-minimal {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border-hairline);
+  background-color: var(--bg-primary);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.footer-social-links a {
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer-social-links a:hover {
+  color: var(--accent-blue);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. PÁGINA CATÁLOGO (proyectos.html) CON FILTROS ELEGANTES
+   -------------------------------------------------------------------------- */
+.archive-hero-clean {
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2rem, 4vw, 3.5rem) 0;
+  border-bottom: 1px solid var(--border-hairline);
+  background-color: var(--bg-secondary);
+}
+
+.filter-bar-clean {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2.5rem 0 3.5rem 0;
+}
+
+.filter-btn-clean {
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn-clean:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.filter-btn-clean.active {
+  background-color: var(--text-main);
+  border-color: var(--text-main);
+  color: #ffffff;
+}
+
+.project-item.is-hidden {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. ANIMACIONES & RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Responsive: Tablets y pantallas medianas (<= 992px) */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .hero-sub-frame {
+    bottom: -1.5rem;
+    left: 1rem;
+    width: 44%;
+  }
+
+  .project-item,
+  .project-item:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .project-item:nth-child(even) .project-media {
+    order: 1;
+  }
+
+  .project-item:nth-child(even) .project-details {
+    order: 2;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Responsive: Móviles (<= 768px) */
+@media (max-width: 768px) {
+  .header-container {
+    height: 68px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.75rem;
+    gap: 1.75rem;
+    border-bottom: 1px solid var(--border-hairline);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition-smooth), opacity var(--transition-smooth);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  }
+
+  .nav-menu.is-active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    font-size: 1.15rem;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(1.85rem, 8.8vw, 3.2rem);
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
